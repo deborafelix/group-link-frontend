@@ -4,12 +4,17 @@ import { Title } from '../../atoms/Text/Title/Title';
 import { MenuCard } from '../../molecules/MenuCard/MenuCard';
 import { Container, CardLink } from './styles';
 
-export const Card = () => {
+type CardProps = {
+    title: string,
+    description: string,
+}
+
+export const Card: React.FC<CardProps> = ({title, description}: CardProps) => {
     return(
         <Container>
             <CardLink>
-                <Title text={'titulo do card'}/>
-                <Description text={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean venenatis turpis vitae blandit fringilla. Cras congue vehicula commodo.'} />
+                <Title text={title}/>
+                <Description text={description} />
                 <MenuCard />
             </CardLink>
         </Container >
