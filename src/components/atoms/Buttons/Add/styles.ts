@@ -4,20 +4,19 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 240px;
+    height: 60px
 `
 
-export const Circle = styled.div`
-    width: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+export const Button = styled.button`
+    background-color: black;
+    width: 200px;
     height: 30px;
-    border-width: 0.5px;
+    color: #fff;
+    border-width: 1px;
     border-color: black;
     border-style: solid;
-    border-radius: 50%;
+    border-radius: 5px;
+    box-shadow: 0 0 0 0;
+    outline: 0;
 `
-
-export const Icon = styled.div``

@@ -5,13 +5,13 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     width: 240px;
-    height: 30px
+    height: 60px
     
 `
 
 export const Input = styled.input`
     width: 200px;
-    height: 24px;
+    height: 48px;
     border-width: 1px;
     border-color: black;
     border-style: solid;
