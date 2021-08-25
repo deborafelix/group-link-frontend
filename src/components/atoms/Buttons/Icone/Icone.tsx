@@ -1,11 +1,15 @@
 import React from 'react';
-import { FiArchive } from 'react-icons/fi';
+import { IconType } from 'react-icons/lib';
 import { Container } from './styles';
 
-export const Icone = () => {
+type IconProps = {
+    Icon: IconType
+}
+
+export const Icone: React.FC<IconProps> = ({Icon}: IconProps) => {
     return(
         <Container>
-            <FiArchive size={20} color="#000"/>
+            <Icon />
         </Container>
     );
 }

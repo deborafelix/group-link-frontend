@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
     display: flex;
     width: 140px;
-    height: 70px
+    height: 70px;
 `
 
 export const Text = styled.text`

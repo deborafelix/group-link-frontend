@@ -4,14 +4,13 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 240px;
-    height: 60px
-    
-`
-
-export const Input = styled.input`
     width: 200px;
     height: 48px;
+`
+
+export const Input = styled.textarea`
+    width: 100%;
+    height: 100%;
     border-width: 1px;
     border-color: black;
     border-style: solid;

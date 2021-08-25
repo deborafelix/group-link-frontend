@@ -4,14 +4,15 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 240px;
-    height: 60px
+    width: 200px;
+    height: 30px;
+    margin: 20px 0px;
 `
 
 export const Button = styled.button`
     background-color: black;
-    width: 200px;
-    height: 30px;
+    width: 100%;
+    height: 100%;
     color: #fff;
     border-width: 1px;
     border-color: black;

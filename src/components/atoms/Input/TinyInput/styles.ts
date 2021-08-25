@@ -4,14 +4,14 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 240px;
-    height: 30px
+    width: 200px;
+    height: 24px;
     
 `
 
 export const Input = styled.input`
-    width: 200px;
-    height: 24px;
+    width: 100%;
+    height: 100%;
     border-width: 1px;
     border-color: black;
     border-style: solid;
