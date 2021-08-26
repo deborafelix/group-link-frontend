@@ -1,7 +1,7 @@
 import React from 'react';
 import { MenuCircle } from '../../molecules/MenuCircle/MenuCircle';
 import { Card } from '../../organisms/Card/Card';
-import { Container, ContainerCard, Top, ListCard } from './styles';
+import { Container, CardContainer, Top, CardList, CardHeader } from './styles';
 
 export const Home = () => {
     return(
@@ -9,8 +9,11 @@ export const Home = () => {
             <Top>
                 <MenuCircle />
             </Top>
-            <ContainerCard>
-                <ListCard>
+            <CardContainer>
+                <CardHeader>
+
+                </CardHeader>
+                <CardList>
                 <Card 
                     title={'titulo'} 
                     description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean venenatis turpis vitae blandit fringilla. Cras congue vehicula commodo.'}
@@ -27,8 +30,8 @@ export const Home = () => {
                     title={'titulo'} 
                     description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean venenatis turpis vitae blandit fringilla. Cras congue vehicula commodo.'}
                 />
-                </ListCard>
-            </ContainerCard>
+                </CardList>
+            </CardContainer>
         </Container>
     );
 }

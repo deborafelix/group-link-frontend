@@ -8,7 +8,7 @@ export const Container = styled.div`
     border-radius: 8%;
     width: 200px;
     height: 200px;
-    margin: 5px;
+    margin: 10px;
 `
 
 export const CardLink = styled.div`
