@@ -6,5 +6,4 @@ export const Container = styled.div`
 
 export const Text = styled.text`
     font-size: 14px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 `

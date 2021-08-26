@@ -3,12 +3,13 @@ import styled from 'styled-components';
 export const Container = styled.div`
     display: flex;
     width: 100%;
-    height: 70px;
+    height: 80%;
 `
 
 export const Text = styled.text`
-    font-size: 12px;
+    font-size: 11px;
+    font-weight: 300;
+    text-size-adjust: initial;
     color: #000;
     opacity: 60%;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 `

@@ -8,15 +8,14 @@ export const Container = styled.div`
     border-radius: 8%;
     width: 200px;
     height: 200px;
-    margin: 10px;
 `
 
 export const CardLink = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: flex-start;
     align-self: center;
     width: 80%;
-    height: 80%;
+    height: 85%;
 `

@@ -11,5 +11,4 @@ export const Text = styled.text`
     font-size: 10px;
     color: #000;
     opacity: 80%;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 `
