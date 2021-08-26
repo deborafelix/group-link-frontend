@@ -12,7 +12,7 @@ export const CircleButton: React.FC<IconProps> = ({Icon}: IconProps)  => {
         <>
         <Container>
             <Circle>
-                <Icon size={12} color="#000"/>
+                <Icon size={20} color="#000"/>
             </Circle>
         </Container>
         </>

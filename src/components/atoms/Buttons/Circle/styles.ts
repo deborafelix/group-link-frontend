@@ -4,17 +4,16 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
 `
 
 export const Circle = styled.div`
-    width: 18px;
-    height: 18px;
+    width: 35px;
+    height: 35px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    
+    justify-content: center;    
     border-width: 0.5px;
     border-color: black;
     border-style: solid;
