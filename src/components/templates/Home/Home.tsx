@@ -1,4 +1,5 @@
 import React from 'react';
+import { GroupLink } from '../../atoms/Text/GroupLink/GroupLink';
 import { MenuCircle } from '../../molecules/MenuCircle/MenuCircle';
 import { Card } from '../../organisms/Card/Card';
 import { Container, CardContainer, Top, CardList, CardHeader } from './styles';
@@ -7,6 +8,7 @@ export const Home = () => {
     return(
         <Container>
             <Top>
+                <GroupLink />
                 <MenuCircle />
             </Top>
             <CardContainer>

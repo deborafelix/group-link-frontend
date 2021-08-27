@@ -12,7 +12,8 @@ export const Container = styled.div`
 export const Top = styled.div`
   display: flex;
   align-self: center;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
   width: 80%;
   height: 10vh;
 `;

@@ -6,6 +6,11 @@ export const Container = styled.div`
     justify-content: center;
     width: 40px;
     height: 40px;
+
+    @media (max-width: 600px) {
+    width: 35px;
+    height: 35px;
+   }
 `
 
 export const Circle = styled.div`
@@ -18,6 +23,9 @@ export const Circle = styled.div`
     border-color: black;
     border-style: solid;
     border-radius: 50%;
-`
 
-export const Icon = styled.div``
+    @media (max-width: 600px) {
+    width: 30px;
+    height: 30px;
+   }
+`
