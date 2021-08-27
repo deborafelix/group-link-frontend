@@ -9,41 +9,7 @@ export const Container = styled.div`
   overflow: scroll;
 `;
 
-export const Top = styled.div`
+export const Body = styled.div`
   display: flex;
-  align-self: center;
-  justify-content: space-between;
-  align-items: center;
-  width: 80%;
-  height: 10vh;
-`;
-
-export const CardContainer = styled.div`
-  background-color: #f5f3f4;
-  display: flex;
-  flex-direction: column;
-  align-self: center;
-  align-items: center;
-  width: 80%;
-  min-height: 90vh;
-  border-radius: 10px;
-
-  @media(max-width: 600px) {
-    width: 70%;
-  }
-`;
-
-export const CardHeader = styled.div`
-  align-self: center;
-  width: 95%;
-  height: 50px;
-`;
-
-export const CardList = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, max-content));
-  grid-gap: 16px;
-  justify-content: center;
-  padding: initial;
-  width: 100%;
+  flex-direction: row;
 `;
