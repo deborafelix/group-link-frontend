@@ -3,7 +3,7 @@ import { Card } from '../../molecules/Card/Card';
 import { Container } from './styles';
 
 
-export const CardList = ()  => {
+export const CardList: React.FC = ()  => {
     return (
         <Container>
             <Card 

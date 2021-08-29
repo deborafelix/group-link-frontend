@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Input } from './styles';
 
-export const BigInput = (): any => {
+export const BigInput: React.FC = () => {
     return(
         <Container>
             <Input>

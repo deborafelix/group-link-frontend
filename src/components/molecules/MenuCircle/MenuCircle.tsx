@@ -4,7 +4,7 @@ import { Container } from './styles';
 import { FiPlus, FiSearch, FiShare2 } from 'react-icons/fi';
 
 
-export const MenuCircle = ()  => {
+export const MenuCircle: React.FC = ()  => {
     return (
         <Container>
             <CircleButton  Icon={FiPlus}/>

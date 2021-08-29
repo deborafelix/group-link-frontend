@@ -3,7 +3,7 @@ import { CardList } from '../CardList/CardList';
 import { Container, CardHeader } from './styles';
 
 
-export const CardContainer = ()  => {
+export const CardContainer: React.FC = ()  => {
     return (
         <Container>
             <CardHeader>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaRegStar, FaStar } from 'react-icons/fa';
 
-export const Fav = () => {
+export const Fav: React.FC = () => {
     const isFav = true;
     return(
         <> 
