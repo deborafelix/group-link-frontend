@@ -1,7 +1,7 @@
 import React from 'react';
 import { Description } from '../../atoms/Text/Description/Description';
 import { Title } from '../../atoms/Text/Title/Title';
-import { MenuCard } from '../../molecules/MenuCard/MenuCard';
+import { MenuCard } from '../MenuCard/MenuCard';
 import { Container, CardLink } from './styles';
 
 type CardProps = {

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Header } from '../Header/Header';
+import { Header } from '../../organisms/Header/Header';
 import { Container } from './styles';
-import { CardContainer } from '../CardContainer/CardContainer';
+import { CardContainer } from '../../organisms/CardContainer/CardContainer';
 
 export const Home = () => {
     return(

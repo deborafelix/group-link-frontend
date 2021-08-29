@@ -1,6 +1,6 @@
 import React, { ReactNode, useState } from 'react';
 import { AddButton } from '../../atoms/Buttons/Add/AddButton';
-import { LineForm } from '../../molecules/LineForm/LineForm';
+import { LineForm } from '../LineForm/LineForm';
 import { Container } from './styles';
 import { useTrail, a } from 'react-spring';
 
