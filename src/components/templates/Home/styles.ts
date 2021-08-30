@@ -9,7 +9,12 @@ export const Container = styled.div`
   overflow: scroll;
 `;
 
-export const Body = styled.div`
+export const Div = styled.div`
   display: flex;
-  flex-direction: row;
+  justify-content: flex-start;
+`;
+
+export const Menu = styled.div`
+  margin-left: 20px;
+  width: 5%;
 `;

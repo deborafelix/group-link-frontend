@@ -6,5 +6,5 @@ export const Container = styled.div`
 
 export const Text = styled.text`
     font-size: 24px;
-    font-weight: 600;
+    font-weight: 700;
 `

@@ -3,6 +3,8 @@ import { AddButton } from '../../atoms/Buttons/Add/AddButton';
 import { LineForm } from '../LineForm/LineForm';
 import { Container } from './styles';
 import { useTrail, a } from 'react-spring';
+import { FaStar } from 'react-icons/fa';
+import { IconForm } from '../IconForm/IconForm';
 
 type AnimatedType = {
     open: boolean,
@@ -35,6 +37,7 @@ export const AddForm = () => {
         <Trail open={open}>
             <LineForm text={'Titulo do link'} isBig={false}/>
             <LineForm text={'Link'} isBig={false}/>
+            <IconForm text={'Icone do Link'}/>
             <LineForm text={'Descrição'} isBig={true}/>
             <AddButton />
         </Trail>
