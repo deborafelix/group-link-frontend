@@ -7,11 +7,12 @@ import { Container, CardLink } from './styles';
 type CardProps = {
     title: string,
     description: string,
+    link: string,
 }
 
-export const Card: React.FC<CardProps> = ({title, description}: CardProps) => {
+export const Card: React.FC<CardProps> = ({title, description, link}: CardProps) => {
     return(
-        <Container>
+        <Container href={link} target='_blank'>
             <CardLink>
                 <Title text={title}/>
                 <Description text={description} />

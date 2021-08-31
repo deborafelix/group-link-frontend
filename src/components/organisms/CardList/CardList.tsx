@@ -1,27 +1,22 @@
 import React from 'react';
+import { useApp } from '../../../context';
 import { Card } from '../../molecules/Card/Card';
 import { Container } from './styles';
 
 
 export const CardList: React.FC = ()  => {
+    const {links} = useApp();
     return (
         <Container>
-            <Card 
-                title={'titulo'} 
-                description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean venenatis turpis vitae blandit fringilla. Cras congue vehicula commodo.'}
+            {links?.map((link) => (
+                <Card 
+                key = {link.id}
+                title={link.title} 
+                description={link.description}
+                link={'https://'+link.url}
             />
-            <Card 
-                title={'titulo'} 
-                description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean venenatis turpis vitae blandit fringilla. Cras congue vehicula commodo.'}
-            />
-            <Card 
-                title={'titulo'} 
-                description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean venenatis turpis vitae blandit fringilla. Cras congue vehicula commodo.'}
-            />
-            <Card 
-                title={'titulo'} 
-                description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean venenatis turpis vitae blandit fringilla. Cras congue vehicula commodo.'}
-            />
+            ))}
+            
         </Container>
 );
 }
