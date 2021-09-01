@@ -1,5 +1,6 @@
 import React from 'react';
 import { IconType } from 'react-icons/lib';
+import { Icons } from '../../../../constants/icon';
 import { Container, ContainerIcon } from './styles';
 
 type IconProps = {
@@ -9,13 +10,15 @@ type IconProps = {
 export const IconInput: React.FC<IconProps> = ({Icon}: IconProps) => {
     return(
     <Container>
-    { Array(25).fill('').map((_, index) => (
+    { Object.keys(Icons).map((Icon2, index) => {
+        const CurrentIcon = Icons[Icon2]
+        return (
         <>
             <ContainerIcon key={index}>
-                <Icon />               
+                <CurrentIcon />               
             </ContainerIcon>
         </>
-    ))
+    )})
     }
     </Container>
     );
