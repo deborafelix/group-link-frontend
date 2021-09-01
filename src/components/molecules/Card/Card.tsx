@@ -8,15 +8,17 @@ type CardProps = {
     title: string,
     description: string,
     link: string,
+    date: string,
+    isFav: boolean
 }
 
-export const Card: React.FC<CardProps> = ({title, description, link}: CardProps) => {
+export const Card: React.FC<CardProps> = ({title, description, link, date, isFav}: CardProps) => {
     return(
         <Container href={link} target='_blank'>
             <CardLink>
                 <Title text={title}/>
                 <Description text={description} />
-                <MenuCard />
+                <MenuCard date={date} isFav={isFav}/>
             </CardLink>
         </Container >
     );

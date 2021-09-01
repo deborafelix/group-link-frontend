@@ -3,11 +3,16 @@ import { Fav } from '../../atoms/Buttons/Fav/Fav';
 import { Date } from '../../atoms/Text/Date/Date';
 import { Container } from './styles';
 
-export const MenuCard: React.FC = () => {
+type MenuCardProps = {
+    isFav: boolean,
+    date: string
+}
+
+export const MenuCard: React.FC<MenuCardProps> = ({date, isFav}: MenuCardProps) => {
     return(
     <Container >
-        <Date text={'30 de março de 2021'}/>
-        <Fav /> 
+        <Date text={date}/>
+        <Fav isFav={isFav} /> 
     </Container>  
     );
 }

@@ -6,7 +6,7 @@ export const Container = styled.div`
     justify-content: center;
     width: 200px;
     height: 30px;
-    margin: 20px 0px;
+    margin-top: 10px;
 `
 
 export const Button = styled.button`

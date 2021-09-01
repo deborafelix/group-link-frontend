@@ -37,7 +37,8 @@ export const AddForm = () => {
         <Trail open={open}>
             <LineForm text={'Titulo do link'} isBig={false}/>
             <LineForm text={'Link'} isBig={false}/>
-            <IconForm text={'Icone do Link'}/>
+            <LineForm text={'Categoria do Link'} isBig={false}/>
+            <IconForm text={'Icone da Categoria'}/>
             <LineForm text={'Descrição'} isBig={true}/>
             <AddButton />
         </Trail>
