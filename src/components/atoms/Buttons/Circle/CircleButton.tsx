@@ -4,13 +4,14 @@ import { Container, Circle } from './styles';
 
 type IconProps = {
     Icon: IconType
+    onClick?: () => void;
 }
 
 
-export const CircleButton: React.FC<IconProps> = ({Icon}: IconProps)  => {
+export const CircleButton: React.FC<IconProps> = ({Icon, onClick}: IconProps)  => {
     return (
         <>
-        <Container>
+        <Container onClick={onClick}>
             <Circle>
                 <Icon size={20} color="#000"/>
             </Circle>

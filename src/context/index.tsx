@@ -16,20 +16,27 @@ type Link = {
 
 type AppContext = {
     links?: Link[];
+    addFormIsOpen: boolean;
+    handleOnAddFormClick: () => void;
 }
 
 type AppProviderProps = {
     children: ReactNode;
 }
 
-// TODO init cards with some universal links (google etc)
+// TODO: init cards with some universal links (google etc)
 const Context = createContext<AppContext>({
     links: [],
+    addFormIsOpen: false,
+    handleOnAddFormClick: () => {
+      return
+    }
 })
 
 export const AppProvider: React.FC<AppProviderProps>  = ({
     children,
   }: AppProviderProps) => {
+      const [addFormIsOpen, setAddFormIsOpen] = useState(false);
       const [links, setLinks] = useState<Link[]>([{
         id: "1234567",
         title: "Google",
@@ -49,12 +56,16 @@ export const AppProvider: React.FC<AppProviderProps>  = ({
         setLinks(apiLinks);
       };
 
+      const handleOnAddFormClick = () => {
+        setAddFormIsOpen(prev => !prev);
+      };
+
       useEffect(() => {
         getLinks();
       }, []);
 
       return (
-          <Context.Provider value={{links}}>
+          <Context.Provider value={{links, addFormIsOpen, handleOnAddFormClick}}>
             {children}
           </Context.Provider>
       );

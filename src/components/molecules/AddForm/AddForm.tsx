@@ -5,6 +5,7 @@ import { Container } from './styles';
 import { useTrail, a } from 'react-spring';
 import { FaStar } from 'react-icons/fa';
 import { IconForm } from '../IconForm/IconForm';
+import { useApp } from '../../../context';
 
 type AnimatedType = {
     open: boolean,
@@ -31,10 +32,10 @@ const Trail: React.FC<AnimatedType> = ({ open, children }: AnimatedType) => {
 }
 
 export const AddForm = () => {
-    const [open, set] = useState(true);
+    const {addFormIsOpen} = useApp();
     return(
-    <Container onClick={() => set(state => !state)}>
-        <Trail open={open}>
+    <Container>
+        <Trail open={addFormIsOpen}>
             <LineForm text={'Titulo do link'} isBig={false}/>
             <LineForm text={'Link'} isBig={false}/>
             <LineForm text={'Categoria do Link'} isBig={false}/>
