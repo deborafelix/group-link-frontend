@@ -1,8 +1,10 @@
 import React, { createContext, ReactNode, useContext, useState } from "react";
 import { useEffect } from "react";
+import { AddButton } from "../components/atoms/Buttons/Add/AddButton";
+import { SearchForm } from "../components/molecules/SearchForm/SearchForm";
 import { api } from "../config/api";
 
-type Link = {
+export type Link = {
     id: string;
     title: string;
     icon: string;
@@ -17,6 +19,8 @@ type AppContext = {
     links?: Link[];
     addFormIsOpen: boolean;
     handleOnAddFormClick: () => void;
+    searchFormIsOpen: boolean;
+    handleOnSearchFormClick: () => void;
 }
 
 type AppProviderProps = {
@@ -29,6 +33,10 @@ const Context = createContext<AppContext>({
     addFormIsOpen: false,
     handleOnAddFormClick: () => {
       return
+    },
+    searchFormIsOpen: false,
+    handleOnSearchFormClick: () => {
+      return
     }
 })
 
@@ -36,6 +44,7 @@ export const AppProvider: React.FC<AppProviderProps>  = ({
     children,
   }: AppProviderProps) => {
       const [addFormIsOpen, setAddFormIsOpen] = useState(false);
+      const [searchFormIsOpen, setSearchFormIsOpen] = useState(false);
       const [links, setLinks] = useState<Link[]>([{
         id: "1234567",
         title: "Google",
@@ -56,6 +65,16 @@ export const AppProvider: React.FC<AppProviderProps>  = ({
 
       const handleOnAddFormClick = () => {
         setAddFormIsOpen(prev => !prev);
+        if (searchFormIsOpen) {
+          handleOnSearchFormClick();
+        }
+      };
+
+      const handleOnSearchFormClick = () => {
+        setSearchFormIsOpen(prev => !prev);
+        if (addFormIsOpen) {
+          handleOnAddFormClick();
+        }
       };
 
       useEffect(() => {
@@ -63,7 +82,7 @@ export const AppProvider: React.FC<AppProviderProps>  = ({
       }, []);
 
       return (
-          <Context.Provider value={{links, addFormIsOpen, handleOnAddFormClick}}>
+          <Context.Provider value={{links, addFormIsOpen, handleOnAddFormClick, searchFormIsOpen, handleOnSearchFormClick}}>
             {children}
           </Context.Provider>
       );

@@ -56,7 +56,7 @@ export const AddForm = () => {
     }
 
     const saveLink = async () => {
-      await api.post('', {title, link, group, icon, description});
+      await api.post('', {title, url: link, group, icon, description});
     }
 
     return(

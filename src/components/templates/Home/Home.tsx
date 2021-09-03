@@ -3,13 +3,15 @@ import { Header } from '../../organisms/Header/Header';
 import { Container, Div, Menu } from './styles';
 import { CardContainer } from '../../organisms/CardContainer/CardContainer';
 import { AddForm } from '../../molecules/AddForm/AddForm';
+import { SearchForm } from '../../molecules/SearchForm/SearchForm';
+import { useApp } from '../../../context';
 
 export const Home: React.FC = () => {
-    const isAdding = true;
+    const {searchFormIsOpen, addFormIsOpen} = useApp();
     return(
         <Container>
             <Header />
-                {(isAdding) 
+                {(addFormIsOpen) 
         
                 ? <Div>
                     <Menu />
@@ -20,6 +22,7 @@ export const Home: React.FC = () => {
                 : <Div>
                     <Menu />
                     <CardContainer />
+                    <SearchForm />
                 </Div>
                 
                 }    

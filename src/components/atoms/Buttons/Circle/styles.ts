@@ -24,6 +24,10 @@ export const Circle = styled.div`
     border-style: solid;
     border-radius: 50%;
 
+    ${Container}:hover & {
+    background-color: #f5f3f4;
+  }
+
     @media (max-width: 600px) {
     width: 30px;
     height: 30px;
