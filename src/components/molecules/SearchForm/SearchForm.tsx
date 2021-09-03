@@ -3,9 +3,9 @@ import { LineForm } from '../LineForm/LineForm';
 import { Container } from './styles';
 import { useTrail, a } from 'react-spring';
 import { Link, useApp } from '../../../context';
-import { Card } from '../Card/Card';
 import { useState } from 'react';
 import { formatDate } from '../../../utils/formatDate';
+import { CardHighlighted } from '../CardHighlighted/CardHighlighted';
 
 type AnimatedType = {
     open: boolean,
@@ -44,13 +44,16 @@ export const SearchForm = () => {
     <Container>
         <Trail open={searchFormIsOpen}>
             <LineForm text={'Encontre o seu link:'} isBig={false} onChange={searchLink}/>
-            <Card 
-                key = {filteredLink.id}
-                title={filteredLink.title} 
-                description={filteredLink.description || filteredLink.url}
-                link={'https://'+filteredLink.url}
-                date={formatDate(new Date(filteredLink.createdAt))}
-            />
+            {(filteredLink.id) ? (
+              <CardHighlighted 
+              key = {filteredLink.id}
+              title={filteredLink.title} 
+              description={filteredLink.description || filteredLink.url}
+              link={'https://'+filteredLink.url}
+              date={formatDate(new Date(filteredLink.createdAt))}
+            /> 
+            ) 
+          : null}
         </Trail>
     </Container>
     );
