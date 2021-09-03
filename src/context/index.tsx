@@ -9,7 +9,6 @@ type Link = {
     url: string;
     description: string;
     group: string;
-    fav: boolean;
     createdAt: Date;
     updatedAt: Date;
 }
@@ -44,7 +43,6 @@ export const AppProvider: React.FC<AppProviderProps>  = ({
         url: 'www.google.com',
         description: 'Site de pesquisa usado para pesquisar coisas',
         group: 'Work',
-        fav: true,
         createdAt: new Date(),
         updatedAt: new Date(), 
       }]);

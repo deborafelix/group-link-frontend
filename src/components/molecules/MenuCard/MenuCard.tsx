@@ -1,18 +1,17 @@
 import React from 'react';
-import { Fav } from '../../atoms/Buttons/Fav/Fav';
+import { Options } from '../../atoms/Buttons/Options/Options';
 import { Date } from '../../atoms/Text/Date/Date';
 import { Container } from './styles';
 
 type MenuCardProps = {
-    isFav: boolean,
     date: string
 }
 
-export const MenuCard: React.FC<MenuCardProps> = ({date, isFav}: MenuCardProps) => {
+export const MenuCard: React.FC<MenuCardProps> = ({date}: MenuCardProps) => {
     return(
-    <Container >
+    <Container>
         <Date text={date}/>
-        <Fav isFav={isFav} /> 
+        <Options/> 
     </Container>  
     );
 }
