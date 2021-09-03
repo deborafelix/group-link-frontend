@@ -6,14 +6,15 @@ import { Container } from './styles';
 
 type InputProps = {
     text: string,
-    isBig: boolean
+    isBig: boolean,
+    onChange: (inputText: string) => void;
 }
 
-export const LineForm: React.FC<InputProps> = ({text, isBig}: InputProps) => {
+export const LineForm: React.FC<InputProps> = ({text, isBig, onChange}: InputProps) => {
     return(
         <Container>
             <TextInput text={text}/>
-            {(isBig) ? <BigInput /> : <TinyInput />}   
+            {(isBig) ? <BigInput onChange={onChange}/> : <TinyInput onChange={onChange}/>}   
         </Container >
     );
 }

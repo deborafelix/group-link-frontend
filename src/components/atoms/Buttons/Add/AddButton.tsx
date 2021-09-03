@@ -1,10 +1,14 @@
 import React from 'react';
 import { Container, Button } from './styles';
 
-export const AddButton: React.FC = () => {
+type ButtonProps = {
+    onClick: () => void;
+}
+
+export const AddButton: React.FC<ButtonProps> = ({onClick}: ButtonProps) => {
     return (
         <>
-        <Container>
+        <Container onClick={onClick}>
             <Button>Adicionar</Button>
         </Container>
         </>

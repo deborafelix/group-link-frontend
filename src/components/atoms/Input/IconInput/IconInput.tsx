@@ -4,17 +4,20 @@ import { Icons } from '../../../../constants/icon';
 import { Container, ContainerIcon } from './styles';
 
 type IconProps = {
-    Icon: IconType
+    onChange: (inputText: string) => void;
 }
 
-export const IconInput: React.FC<IconProps> = ({Icon}: IconProps) => {
+export const IconInput: React.FC<IconProps> = ({onChange}: IconProps) => {
+    const handleOnIconClick = (iconName: string) => {
+        onChange(iconName);
+    }
     return(
     <Container>
-    { Object.keys(Icons).map((Icon2, index) => {
-        const CurrentIcon = Icons[Icon2]
+    { Object.keys(Icons).map((Icon, index) => {
+        const CurrentIcon = Icons[Icon]
         return (
         <>
-            <ContainerIcon key={index}>
+            <ContainerIcon key={index} onClick={() => handleOnIconClick(Icon)}>
                 <CurrentIcon />               
             </ContainerIcon>
         </>

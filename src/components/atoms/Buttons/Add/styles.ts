@@ -7,6 +7,7 @@ export const Container = styled.div`
     width: 200px;
     height: 30px;
     margin-top: 10px;
+    
 `
 
 export const Button = styled.button`
@@ -20,4 +21,5 @@ export const Button = styled.button`
     border-radius: 5px;
     box-shadow: 0 0 0 0;
     outline: 0;
+    cursor: pointer;
 `

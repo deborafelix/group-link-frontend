@@ -5,14 +5,15 @@ import { TextInput } from '../../atoms/Text/TextInput/TextInput';
 import { Container } from './styles';
 
 type InputProps = {
-    text: string
+    text: string,
+    onChange: (inputText: string) => void;
 }
 
-export const IconForm: React.FC<InputProps> = ({text}: InputProps) => {
+export const IconForm: React.FC<InputProps> = ({text, onChange}: InputProps) => {
     return(
         <Container>
             <TextInput text={text}/>
-            <IconInput Icon ={FaStar}/>  
+            <IconInput onChange={onChange}/>  
         </Container >
     );
 }
