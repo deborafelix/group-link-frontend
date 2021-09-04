@@ -21,6 +21,7 @@ type AppContext = {
     handleOnAddFormClick: () => void;
     searchFormIsOpen: boolean;
     handleOnSearchFormClick: () => void;
+    getLinks: () => void;    
 }
 
 type AppProviderProps = {
@@ -36,6 +37,9 @@ const Context = createContext<AppContext>({
     },
     searchFormIsOpen: false,
     handleOnSearchFormClick: () => {
+      return
+    },
+    getLinks: () => {
       return
     }
 })
@@ -82,7 +86,7 @@ export const AppProvider: React.FC<AppProviderProps>  = ({
       }, []);
 
       return (
-          <Context.Provider value={{links, addFormIsOpen, handleOnAddFormClick, searchFormIsOpen, handleOnSearchFormClick}}>
+          <Context.Provider value={{links, addFormIsOpen, handleOnAddFormClick, searchFormIsOpen, handleOnSearchFormClick, getLinks}}>
             {children}
           </Context.Provider>
       );

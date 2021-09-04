@@ -1,5 +1,4 @@
 import React from 'react';
-import { FaStar } from 'react-icons/fa';
 import { IconInput } from '../../atoms/Input/IconInput/IconInput';
 import { TextInput } from '../../atoms/Text/TextInput/TextInput';
 import { Container } from './styles';

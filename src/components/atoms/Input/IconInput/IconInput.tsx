@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { IconType } from 'react-icons/lib';
 import { Icons } from '../../../../constants/icon';
 import { Container, ContainerIcon } from './styles';
@@ -8,8 +9,10 @@ type IconProps = {
 }
 
 export const IconInput: React.FC<IconProps> = ({onChange}: IconProps) => {
+    const [selectedIcon, setSelectedIcon] = useState('');
     const handleOnIconClick = (iconName: string) => {
         onChange(iconName);
+        setSelectedIcon(iconName);
     }
     return(
     <Container>
@@ -18,7 +21,7 @@ export const IconInput: React.FC<IconProps> = ({onChange}: IconProps) => {
         return (
         <>
             <ContainerIcon key={index} onClick={() => handleOnIconClick(Icon)}>
-                <CurrentIcon />               
+                {(selectedIcon === Icon) ? <CurrentIcon /> : <CurrentIcon color={'#a0a0a0'}/>}               
             </ContainerIcon>
         </>
     )})

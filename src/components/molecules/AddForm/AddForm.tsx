@@ -32,7 +32,7 @@ const Trail: React.FC<AnimatedType> = ({ open, children }: AnimatedType) => {
 }
 
 export const AddForm = () => {
-    const {addFormIsOpen} = useApp();
+    const {addFormIsOpen, getLinks} = useApp();
     const [title, setTitle] = useState('');
     const [link, setLink] = useState('');
     const [group, setGroup] = useState('');
@@ -57,6 +57,7 @@ export const AddForm = () => {
 
     const saveLink = async () => {
       await api.post('', {title, url: link, group, icon, description});
+      await getLinks();
     }
 
     return(
