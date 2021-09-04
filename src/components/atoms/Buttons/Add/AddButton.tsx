@@ -9,7 +9,7 @@ export const AddButton: React.FC<ButtonProps> = ({onClick}: ButtonProps) => {
     return (
         <>
         <Container onClick={onClick}>
-            <Button>Adicionar</Button>
+            <Button>Salvar</Button>
         </Container>
         </>
         

@@ -2,7 +2,7 @@ import React from 'react';
 import { Description } from '../../atoms/Text/Description/Description';
 import { Title } from '../../atoms/Text/Title/Title';
 import { MenuCard } from '../MenuCard/MenuCard';
-import { Container, CardLink } from './styles';
+import { Container, CardLink, URLContainer } from './styles';
 
 type CardProps = {
     title: string,
@@ -13,10 +13,12 @@ type CardProps = {
 
 export const Card: React.FC<CardProps> = ({title, description, link, date}: CardProps) => {
     return(
-        <Container href={link} target='_blank'>
+        <Container>
             <CardLink>
-                <Title text={title}/>
-                <Description text={description} />
+                <URLContainer href={link} target='_blank'>
+                    <Title text={title} />
+                    <Description text={description} />
+                </URLContainer>
                 <MenuCard date={date}/>
             </CardLink>
         </Container >
