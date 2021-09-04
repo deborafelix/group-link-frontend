@@ -1,10 +1,11 @@
 import React from 'react';
 import { Header } from '../../organisms/Header/Header';
-import { Container, Div, Menu } from './styles';
+import { Container, Div } from './styles';
 import { CardContainer } from '../../organisms/CardContainer/CardContainer';
 import { AddForm } from '../../molecules/AddForm/AddForm';
 import { SearchForm } from '../../molecules/SearchForm/SearchForm';
 import { useApp } from '../../../context';
+import { Group } from '../../organisms/Group/Group';
 
 export const Home: React.FC = () => {
     const {searchFormIsOpen, addFormIsOpen} = useApp();
@@ -14,13 +15,13 @@ export const Home: React.FC = () => {
                 {(addFormIsOpen) 
         
                 ? <Div>
-                    <Menu />
+                    <Group/>
                     <CardContainer />
                     <AddForm />
                 </Div>
                 
                 : <Div>
-                    <Menu />
+                    <Group />
                     <CardContainer />
                     <SearchForm />
                 </Div>

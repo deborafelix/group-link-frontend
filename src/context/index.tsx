@@ -1,7 +1,5 @@
 import React, { createContext, ReactNode, useContext, useState } from "react";
 import { useEffect } from "react";
-import { AddButton } from "../components/atoms/Buttons/Add/AddButton";
-import { SearchForm } from "../components/molecules/SearchForm/SearchForm";
 import { api } from "../config/api";
 
 export type Link = {
@@ -16,12 +14,14 @@ export type Link = {
 }
 
 type AppContext = {
+    originalLinks?: Link[];
     links?: Link[];
     addFormIsOpen: boolean;
     handleOnAddFormClick: () => void;
     searchFormIsOpen: boolean;
     handleOnSearchFormClick: () => void;
-    getLinks: () => void;    
+    getLinks: () => void;
+    filterByGroup: (group?: string) => void;     
 }
 
 type AppProviderProps = {
@@ -30,6 +30,7 @@ type AppProviderProps = {
 
 // TODO: init cards with some universal links (google etc)
 const Context = createContext<AppContext>({
+    originalLinks: [],
     links: [],
     addFormIsOpen: false,
     handleOnAddFormClick: () => {
@@ -41,6 +42,9 @@ const Context = createContext<AppContext>({
     },
     getLinks: () => {
       return
+    },
+    filterByGroup: (group?: string) => {
+      return
     }
 })
 
@@ -49,21 +53,14 @@ export const AppProvider: React.FC<AppProviderProps>  = ({
   }: AppProviderProps) => {
       const [addFormIsOpen, setAddFormIsOpen] = useState(false);
       const [searchFormIsOpen, setSearchFormIsOpen] = useState(false);
-      const [links, setLinks] = useState<Link[]>([{
-        id: "1234567",
-        title: "Google",
-        icon: 'FaStar',
-        url: 'www.google.com',
-        description: 'Site de pesquisa usado para pesquisar coisas',
-        group: 'Work',
-        createdAt: new Date(),
-        updatedAt: new Date(), 
-      }]);
+      const [links, setLinks] = useState<Link[]>([]);
+      const [originalLinks, setOriginalLinks] = useState<Link[]>([]);
 
       const getLinks = async () => {
         const response = await api.get('');
         const apiLinks: Link[] = response.data;
         console.log(apiLinks);
+        setOriginalLinks(apiLinks);
         setLinks(apiLinks);
       };
 
@@ -81,12 +78,21 @@ export const AppProvider: React.FC<AppProviderProps>  = ({
         }
       };
 
+      const filterByGroup = (group?: string) => {
+        if(!group) {
+          setLinks(originalLinks);
+          return
+        }
+        const filteredLinks = originalLinks.filter((link) => link.group === group);
+        setLinks(filteredLinks);
+      };
+
       useEffect(() => {
         getLinks();
       }, []);
 
       return (
-          <Context.Provider value={{links, addFormIsOpen, handleOnAddFormClick, searchFormIsOpen, handleOnSearchFormClick, getLinks}}>
+          <Context.Provider value={{links, addFormIsOpen, handleOnAddFormClick, searchFormIsOpen, handleOnSearchFormClick, getLinks, filterByGroup, originalLinks}}>
             {children}
           </Context.Provider>
       );

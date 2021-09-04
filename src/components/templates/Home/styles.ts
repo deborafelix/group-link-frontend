@@ -13,8 +13,3 @@ export const Div = styled.div`
   display: flex;
   justify-content: flex-start;
 `;
-
-export const Menu = styled.div`
-  margin-left: 20px;
-  width: 5%;
-`;

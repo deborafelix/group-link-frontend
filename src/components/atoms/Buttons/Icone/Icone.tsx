@@ -9,7 +9,7 @@ type IconProps = {
 export const Icone: React.FC<IconProps> = ({Icon}: IconProps) => {
     return(
         <Container>
-            <Icon />
+            <Icon fontSize={30}/>
         </Container>
     );
 }
