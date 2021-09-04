@@ -33,18 +33,27 @@ const Trail: React.FC<AnimatedType> = ({ open, children }: AnimatedType) => {
 
 export const SearchForm = () => {
     const {searchFormIsOpen, links} = useApp();
-    const [searchText, setSearchText] = useState('');
     const [filteredLink, setFilteredLink] = useState<Link>({} as Link);
-    const searchLink = () => {
-      const currentFilteredLink = links?.find((link) => link.title.includes(searchText))
-      if (currentFilteredLink) setFilteredLink(currentFilteredLink);
+    const searchLink = (inputText: string) => {
+      console.log(inputText)
+      if (!inputText || inputText.length === 0) {
+        setFilteredLink({} as Link);
+        return
+      }
+      const currentFilteredLink = links?.find((link) => link.title.toLowerCase().includes(inputText.toLowerCase()))
+      if (currentFilteredLink) {
+        console.log(currentFilteredLink)
+        setFilteredLink(currentFilteredLink) 
+      } else {
+        setFilteredLink({} as Link);
+        }
     }
 
     return(
     <Container>
         <Trail open={searchFormIsOpen}>
             <LineForm text={'Encontre o seu link:'} isBig={false} onChange={searchLink}/>
-            {(filteredLink.id) ? (
+            {(filteredLink.id) && (
               <CardHighlighted 
               key = {filteredLink.id}
               title={filteredLink.title} 
@@ -53,7 +62,7 @@ export const SearchForm = () => {
               date={formatDate(new Date(filteredLink.createdAt))}
             /> 
             ) 
-          : null}
+          }
         </Trail>
     </Container>
     );
