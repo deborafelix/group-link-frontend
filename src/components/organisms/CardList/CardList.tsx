@@ -19,6 +19,7 @@ export const CardList: React.FC = ()  => {
                 description={link.description || link.url}
                 link={'https://'+link.url}
                 date={formatDate(new Date(link.createdAt))}
+                id={link.id}
             />
             ))}
             

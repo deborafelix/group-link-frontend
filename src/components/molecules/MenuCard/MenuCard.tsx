@@ -5,13 +5,14 @@ import { Container } from './styles';
 
 type MenuCardProps = {
     date: string
+    id: string
 }
 
-export const MenuCard: React.FC<MenuCardProps> = ({date}: MenuCardProps) => {
+export const MenuCard: React.FC<MenuCardProps> = ({date, id}: MenuCardProps) => {
     return(
     <Container>
         <Date text={date}/>
-        <Options/> 
+        <Options id={id}/> 
     </Container>  
     );
 }

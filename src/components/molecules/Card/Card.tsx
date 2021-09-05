@@ -9,9 +9,10 @@ type CardProps = {
     description: string,
     link: string,
     date: string,
+    id: string
 }
 
-export const Card: React.FC<CardProps> = ({title, description, link, date}: CardProps) => {
+export const Card: React.FC<CardProps> = ({title, description, link, date, id}: CardProps) => {
     return(
         <Container>
             <CardLink>
@@ -19,7 +20,7 @@ export const Card: React.FC<CardProps> = ({title, description, link, date}: Card
                     <Title text={title} />
                     <Description text={description} />
                 </URLContainer>
-                <MenuCard date={date}/>
+                <MenuCard date={date} id={id}/>
             </CardLink>
         </Container >
     );

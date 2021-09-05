@@ -20,7 +20,7 @@ type AppContext = {
     handleOnAddFormClick: () => void;
     searchFormIsOpen: boolean;
     handleOnSearchFormClick: () => void;
-    getLinks: () => void;
+    getLinks: () => Promise<void>;
     filterByGroup: (group?: string) => void;     
 }
 
@@ -40,7 +40,7 @@ const Context = createContext<AppContext>({
     handleOnSearchFormClick: () => {
       return
     },
-    getLinks: () => {
+    getLinks: async () => {
       return
     },
     filterByGroup: (group?: string) => {

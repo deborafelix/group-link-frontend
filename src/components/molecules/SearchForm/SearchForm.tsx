@@ -60,6 +60,7 @@ export const SearchForm = () => {
               description={filteredLink.description || filteredLink.url}
               link={'https://'+filteredLink.url}
               date={formatDate(new Date(filteredLink.createdAt))}
+              id={filteredLink.id}
             /> 
             ) 
           }
