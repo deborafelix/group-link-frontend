@@ -8,7 +8,6 @@ export type Link = {
     icon: string;
     url: string;
     description: string;
-    group: string;
     createdAt: Date;
     updatedAt: Date;
 }
@@ -16,8 +15,8 @@ export type Link = {
 type AppContext = {
     originalLinks?: Link[];
     links?: Link[];
-    addFormIsOpen: boolean;
-    handleOnAddFormClick: () => void;
+    linkFormIsOpen: boolean;
+    handleOnLinkFormClick: () => void;
     searchFormIsOpen: boolean;
     handleOnSearchFormClick: () => void;
     getLinks: () => Promise<void>;
@@ -32,8 +31,8 @@ type AppProviderProps = {
 const Context = createContext<AppContext>({
     originalLinks: [],
     links: [],
-    addFormIsOpen: false,
-    handleOnAddFormClick: () => {
+    linkFormIsOpen: false,
+    handleOnLinkFormClick: () => {
       return
     },
     searchFormIsOpen: false,
@@ -51,7 +50,7 @@ const Context = createContext<AppContext>({
 export const AppProvider: React.FC<AppProviderProps>  = ({
     children,
   }: AppProviderProps) => {
-      const [addFormIsOpen, setAddFormIsOpen] = useState(false);
+      const [linkFormIsOpen, setLinkFormIsOpen] = useState(false);
       const [searchFormIsOpen, setSearchFormIsOpen] = useState(false);
       const [links, setLinks] = useState<Link[]>([]);
       const [originalLinks, setOriginalLinks] = useState<Link[]>([]);
@@ -64,8 +63,8 @@ export const AppProvider: React.FC<AppProviderProps>  = ({
         setLinks(apiLinks);
       };
 
-      const handleOnAddFormClick = () => {
-        setAddFormIsOpen(prev => !prev);
+      const handleOnLinkFormClick = () => {
+        setLinkFormIsOpen(prev => !prev);
         if (searchFormIsOpen) {
           handleOnSearchFormClick();
         }
@@ -73,8 +72,8 @@ export const AppProvider: React.FC<AppProviderProps>  = ({
 
       const handleOnSearchFormClick = () => {
         setSearchFormIsOpen(prev => !prev);
-        if (addFormIsOpen) {
-          handleOnAddFormClick();
+        if (linkFormIsOpen) {
+          handleOnLinkFormClick();
         }
       };
 
@@ -92,7 +91,7 @@ export const AppProvider: React.FC<AppProviderProps>  = ({
       }, []);
 
       return (
-          <Context.Provider value={{links, addFormIsOpen, handleOnAddFormClick, searchFormIsOpen, handleOnSearchFormClick, getLinks, filterByIcon, originalLinks}}>
+          <Context.Provider value={{links, linkFormIsOpen, handleOnLinkFormClick, searchFormIsOpen, handleOnSearchFormClick, getLinks, filterByIcon, originalLinks}}>
             {children}
           </Context.Provider>
       );

@@ -6,10 +6,10 @@ import { useApp } from '../../../context';
 
 
 export const MenuCircle: React.FC = ()  => {
-    const {handleOnAddFormClick, handleOnSearchFormClick} = useApp();
+    const {handleOnLinkFormClick, handleOnSearchFormClick} = useApp();
     return (
         <Container>
-            <CircleButton  Icon={FiPlus} onClick={handleOnAddFormClick}/>
+            <CircleButton  Icon={FiPlus} onClick={handleOnLinkFormClick}/>
             <CircleButton  Icon={FiSearch} onClick={handleOnSearchFormClick}/>
             <CircleButton  Icon={FiUser}/>
         </Container>

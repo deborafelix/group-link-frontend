@@ -31,8 +31,8 @@ const Trail: React.FC<AnimatedType> = ({ open, children }: AnimatedType) => {
   )
 }
 
-export const AddForm = () => {
-    const {addFormIsOpen, getLinks} = useApp();
+export const LinkForm = () => {
+    const {linkFormIsOpen, getLinks} = useApp();
     const [title, setTitle] = useState('');
     const [link, setLink] = useState('');
     const [group, setGroup] = useState('');
@@ -67,7 +67,7 @@ export const AddForm = () => {
 
     return(
     <Container>
-        <Trail open={addFormIsOpen}>
+        <Trail open={linkFormIsOpen}>
             <LineForm text={'Titulo do link'} isBig={false} onChange={handleOnTitleChange} value={title}/>
             <LineForm text={'Link'} isBig={false} onChange={handleOnLinkChange} value={link}/>
             <LineForm text={'Categoria do Link'} isBig={false} onChange={handleOnGroupChange} value={group}/>

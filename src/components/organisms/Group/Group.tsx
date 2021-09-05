@@ -6,15 +6,8 @@ import { useEffect } from 'react';
 import { Icons } from '../../../constants/icon';
 import { FiHome } from 'react-icons/fi';
 
-type GroupProps = {
-    date: string
-}
-type IconGroups = {
-    group: string
-    icon: string
-}
 export const Group: React.FC = () => {
-    const { links, filterByIcon, originalLinks } = useApp();
+    const { filterByIcon, originalLinks } = useApp();
     const [icons, setIcons] = useState<string[]>([]);
 
     useEffect(() => {

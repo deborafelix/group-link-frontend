@@ -2,22 +2,22 @@ import React from 'react';
 import { Header } from '../../organisms/Header/Header';
 import { Container, Div } from './styles';
 import { CardContainer } from '../../organisms/CardContainer/CardContainer';
-import { AddForm } from '../../molecules/AddForm/AddForm';
+import { LinkForm } from '../../molecules/LinkForm/LinkForm';
 import { SearchForm } from '../../molecules/SearchForm/SearchForm';
 import { useApp } from '../../../context';
 import { Group } from '../../organisms/Group/Group';
 
 export const Home: React.FC = () => {
-    const {searchFormIsOpen, addFormIsOpen} = useApp();
+    const {searchFormIsOpen, linkFormIsOpen} = useApp();
     return(
         <Container>
             <Header />
-                {(addFormIsOpen) 
+                {(linkFormIsOpen) 
         
                 ? <Div>
                     <Group/>
                     <CardContainer />
-                    <AddForm />
+                    <LinkForm />
                 </Div>
                 
                 : <Div>

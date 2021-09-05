@@ -1,7 +1,7 @@
 import React from 'react';
 import { FiEdit, FiTrash2 } from 'react-icons/fi';
 import { api } from '../../../../config/api';
-import { useApp } from '../../../../context';
+import { Link, useApp } from '../../../../context';
 import { Container, ContainerIcon } from './styles';
 
 type OptionsProps = {
@@ -11,11 +11,10 @@ type OptionsProps = {
 export const Options: React.FC<OptionsProps> = ({id}: OptionsProps) => {
     const {getLinks} = useApp();
     const deleteLink = async () => {
-        console.log("cheguei", id)
         await api.delete(`/${id}`)
         await getLinks();
-
     }
+
     return(
         <Container>
             <ContainerIcon>
