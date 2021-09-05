@@ -9,7 +9,7 @@ type OptionsProps = {
 }
 
 export const Options: React.FC<OptionsProps> = ({id}: OptionsProps) => {
-    const {getLinks} = useApp();
+    const {getLinks, handleOnLinkFormClick} = useApp();
     const deleteLink = async () => {
         await api.delete(`/${id}`)
         await getLinks();
@@ -17,7 +17,7 @@ export const Options: React.FC<OptionsProps> = ({id}: OptionsProps) => {
 
     return(
         <Container>
-            <ContainerIcon>
+            <ContainerIcon onClick={() => handleOnLinkFormClick(id)}>
                 <FiEdit size={13} color="#000"/>         
             </ContainerIcon>
             <ContainerIcon onClick={deleteLink}>

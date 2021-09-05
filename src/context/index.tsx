@@ -16,7 +16,8 @@ type AppContext = {
     originalLinks?: Link[];
     links?: Link[];
     linkFormIsOpen: boolean;
-    handleOnLinkFormClick: () => void;
+    selectedLink?: Link;
+    handleOnLinkFormClick: (id?: string) => void;
     searchFormIsOpen: boolean;
     handleOnSearchFormClick: () => void;
     getLinks: () => Promise<void>;
@@ -32,7 +33,7 @@ const Context = createContext<AppContext>({
     originalLinks: [],
     links: [],
     linkFormIsOpen: false,
-    handleOnLinkFormClick: () => {
+    handleOnLinkFormClick: (id?: string) => {
       return
     },
     searchFormIsOpen: false,
@@ -54,6 +55,7 @@ export const AppProvider: React.FC<AppProviderProps>  = ({
       const [searchFormIsOpen, setSearchFormIsOpen] = useState(false);
       const [links, setLinks] = useState<Link[]>([]);
       const [originalLinks, setOriginalLinks] = useState<Link[]>([]);
+      const [selectedLink, setSelectedLink] = useState<Link>();
 
       const getLinks = async () => {
         const response = await api.get('');
@@ -63,7 +65,11 @@ export const AppProvider: React.FC<AppProviderProps>  = ({
         setLinks(apiLinks);
       };
 
-      const handleOnLinkFormClick = () => {
+      const handleOnLinkFormClick = (id?: string) => {
+        if (id) {
+          const link = originalLinks.find((link) => link.id === id);
+          setSelectedLink(link);
+        }
         setLinkFormIsOpen(prev => !prev);
         if (searchFormIsOpen) {
           handleOnSearchFormClick();
@@ -91,7 +97,7 @@ export const AppProvider: React.FC<AppProviderProps>  = ({
       }, []);
 
       return (
-          <Context.Provider value={{links, linkFormIsOpen, handleOnLinkFormClick, searchFormIsOpen, handleOnSearchFormClick, getLinks, filterByIcon, originalLinks}}>
+          <Context.Provider value={{links, linkFormIsOpen, handleOnLinkFormClick, searchFormIsOpen, handleOnSearchFormClick, getLinks, filterByIcon, originalLinks, selectedLink}}>
             {children}
           </Context.Provider>
       );

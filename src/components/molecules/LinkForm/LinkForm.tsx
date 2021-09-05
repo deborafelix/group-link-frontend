@@ -4,7 +4,7 @@ import { LineForm } from '../LineForm/LineForm';
 import { Container } from './styles';
 import { useTrail, a } from 'react-spring';
 import { IconForm } from '../IconForm/IconForm';
-import { useApp } from '../../../context';
+import { Link, useApp } from '../../../context';
 import { api } from '../../../config/api';
 
 type AnimatedType = {
@@ -31,22 +31,19 @@ const Trail: React.FC<AnimatedType> = ({ open, children }: AnimatedType) => {
   )
 }
 
-export const LinkForm = () => {
-    const {linkFormIsOpen, getLinks} = useApp();
-    const [title, setTitle] = useState('');
-    const [link, setLink] = useState('');
-    const [group, setGroup] = useState('');
-    const [icon, setIcon] = useState('');
-    const [description, setDescription] = useState('');
+
+export const LinkForm: React.FC = () => {
+    const {linkFormIsOpen, getLinks, selectedLink: link} = useApp();
+    const [title, setTitle] = useState(link?.title || '');
+    const [url, setUrl] = useState(link?.url || '');
+    const [icon, setIcon] = useState(link?.icon || '');
+    const [description, setDescription] = useState(link?.description || '');
 
     const handleOnTitleChange = (inputText: string) => {
       setTitle(inputText)
     }
     const handleOnLinkChange = (inputText: string) => {
-      setLink(inputText)
-    }
-    const handleOnGroupChange = (inputText: string) => {
-      setGroup(inputText)
+      setUrl(inputText)
     }
     const handleOnIconChange = (inputText: string) => {
       setIcon(inputText)
@@ -56,21 +53,25 @@ export const LinkForm = () => {
     }
 
     const saveLink = async () => {
-      await api.post('', {title, url: link, group, icon, description});
+      if (link) {
+        await api.put('', {
+          id: link.id, title, url, icon, description
+        })
+      } else {
+        await api.post('', {title, url, icon, description});
+        setTitle('');
+        setUrl('');
+        setIcon('');
+        setDescription('');
+      }
       await getLinks();
-      setTitle('');
-      setLink('');
-      setGroup('');
-      setIcon('');
-      setDescription('');
     }
 
     return(
     <Container>
         <Trail open={linkFormIsOpen}>
             <LineForm text={'Titulo do link'} isBig={false} onChange={handleOnTitleChange} value={title}/>
-            <LineForm text={'Link'} isBig={false} onChange={handleOnLinkChange} value={link}/>
-            <LineForm text={'Categoria do Link'} isBig={false} onChange={handleOnGroupChange} value={group}/>
+            <LineForm text={'Link'} isBig={false} onChange={handleOnLinkChange} value={url}/>
             <IconForm text={'Icone da Categoria'} onChange={handleOnIconChange} value={icon}/>
             <LineForm text={'Descrição'} isBig={true} onChange={handleOnDescriptionChange} value={description}/>
             <AddButton onClick={saveLink} />
