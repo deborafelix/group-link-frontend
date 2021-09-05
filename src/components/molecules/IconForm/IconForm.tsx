@@ -6,13 +6,14 @@ import { Container } from './styles';
 type InputProps = {
     text: string,
     onChange: (inputText: string) => void;
+    value: string;
 }
 
-export const IconForm: React.FC<InputProps> = ({text, onChange}: InputProps) => {
+export const IconForm: React.FC<InputProps> = ({text, onChange, value}: InputProps) => {
     return(
         <Container>
             <TextInput text={text}/>
-            <IconInput onChange={onChange}/>  
+            <IconInput onChange={onChange} value={value}/>  
         </Container >
     );
 }

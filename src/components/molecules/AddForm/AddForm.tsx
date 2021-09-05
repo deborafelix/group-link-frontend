@@ -58,16 +58,21 @@ export const AddForm = () => {
     const saveLink = async () => {
       await api.post('', {title, url: link, group, icon, description});
       await getLinks();
+      setTitle('');
+      setLink('');
+      setGroup('');
+      setIcon('');
+      setDescription('');
     }
 
     return(
     <Container>
         <Trail open={addFormIsOpen}>
-            <LineForm text={'Titulo do link'} isBig={false} onChange={handleOnTitleChange}/>
-            <LineForm text={'Link'} isBig={false} onChange={handleOnLinkChange}/>
-            <LineForm text={'Categoria do Link'} isBig={false} onChange={handleOnGroupChange}/>
-            <IconForm text={'Icone da Categoria'} onChange={handleOnIconChange}/>
-            <LineForm text={'Descrição'} isBig={true} onChange={handleOnDescriptionChange}/>
+            <LineForm text={'Titulo do link'} isBig={false} onChange={handleOnTitleChange} value={title}/>
+            <LineForm text={'Link'} isBig={false} onChange={handleOnLinkChange} value={link}/>
+            <LineForm text={'Categoria do Link'} isBig={false} onChange={handleOnGroupChange} value={group}/>
+            <IconForm text={'Icone da Categoria'} onChange={handleOnIconChange} value={icon}/>
+            <LineForm text={'Descrição'} isBig={true} onChange={handleOnDescriptionChange} value={description}/>
             <AddButton onClick={saveLink} />
         </Trail>
     </Container>

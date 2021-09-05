@@ -14,25 +14,25 @@ type IconGroups = {
     icon: string
 }
 export const Group: React.FC = () => {
-    const { links, filterByGroup, originalLinks } = useApp();
-    const [groups, setGroups] = useState<IconGroups[]>([]);
+    const { links, filterByIcon, originalLinks } = useApp();
+    const [icons, setIcons] = useState<string[]>([]);
 
     useEffect(() => {
         if (!originalLinks) return
         const linksWithIcon = originalLinks.filter((link) => !!link.icon)
-        const groupsByLink: IconGroups[] = linksWithIcon?.map(link => ({ group: link.group, icon: link.icon }));
-        setGroups(groupsByLink)
+        const iconsByLink: string[] = linksWithIcon?.map(link => link.icon);
+        setIcons(Array.from(new Set(iconsByLink)))
     }, [originalLinks]);
 
     return (
     <Container>
-        <FiHome style={{ margin: '10px', fontSize: '30px'}} onClick={() => filterByGroup()} />
+        <FiHome style={{ margin: '10px', fontSize: '30px'}} onClick={() => filterByIcon()} />
         {
-            groups.map((group) => {
-                const CurrentIcon = Icons[group.icon]
+            icons.map((icon) => {
+                const CurrentIcon = Icons[icon]
                 if (!CurrentIcon) { return false }
-                console.log(group.icon)
-                return <CurrentIcon key={group.icon} style={{ margin: '10px', fontSize: '30px'}} onClick={() => filterByGroup(group.group)}/>
+                console.log(icon)
+                return <CurrentIcon key={icon} style={{ margin: '10px', fontSize: '30px'}} onClick={() => filterByIcon(icon)}/>
             })
         }
     </Container>

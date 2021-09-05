@@ -21,7 +21,7 @@ type AppContext = {
     searchFormIsOpen: boolean;
     handleOnSearchFormClick: () => void;
     getLinks: () => Promise<void>;
-    filterByGroup: (group?: string) => void;     
+    filterByIcon: (icon?: string) => void;     
 }
 
 type AppProviderProps = {
@@ -43,7 +43,7 @@ const Context = createContext<AppContext>({
     getLinks: async () => {
       return
     },
-    filterByGroup: (group?: string) => {
+    filterByIcon: (icon?: string) => {
       return
     }
 })
@@ -78,12 +78,12 @@ export const AppProvider: React.FC<AppProviderProps>  = ({
         }
       };
 
-      const filterByGroup = (group?: string) => {
-        if(!group) {
+      const filterByIcon = (icon?: string) => {
+        if(!icon) {
           setLinks(originalLinks);
           return
         }
-        const filteredLinks = originalLinks.filter((link) => link.group === group);
+        const filteredLinks = originalLinks.filter((link) => link.icon === icon);
         setLinks(filteredLinks);
       };
 
@@ -92,7 +92,7 @@ export const AppProvider: React.FC<AppProviderProps>  = ({
       }, []);
 
       return (
-          <Context.Provider value={{links, addFormIsOpen, handleOnAddFormClick, searchFormIsOpen, handleOnSearchFormClick, getLinks, filterByGroup, originalLinks}}>
+          <Context.Provider value={{links, addFormIsOpen, handleOnAddFormClick, searchFormIsOpen, handleOnSearchFormClick, getLinks, filterByIcon, originalLinks}}>
             {children}
           </Context.Provider>
       );

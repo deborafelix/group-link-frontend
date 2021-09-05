@@ -6,13 +6,12 @@ import { Container, ContainerIcon } from './styles';
 
 type IconProps = {
     onChange: (inputText: string) => void;
+    value: string;
 }
 
-export const IconInput: React.FC<IconProps> = ({onChange}: IconProps) => {
-    const [selectedIcon, setSelectedIcon] = useState('');
+export const IconInput: React.FC<IconProps> = ({onChange, value}: IconProps) => {
     const handleOnIconClick = (iconName: string) => {
         onChange(iconName);
-        setSelectedIcon(iconName);
     }
     return(
     <Container>
@@ -21,7 +20,7 @@ export const IconInput: React.FC<IconProps> = ({onChange}: IconProps) => {
         return (
         <>
             <ContainerIcon key={index} onClick={() => handleOnIconClick(Icon)}>
-                {(selectedIcon === Icon) ? <CurrentIcon /> : <CurrentIcon color={'#a0a0a0'}/>}               
+                {(value === Icon) ? <CurrentIcon /> : <CurrentIcon color={'#a0a0a0'}/>}               
             </ContainerIcon>
         </>
     )})

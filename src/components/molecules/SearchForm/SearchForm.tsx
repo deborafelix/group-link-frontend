@@ -52,7 +52,7 @@ export const SearchForm = () => {
     return(
     <Container>
         <Trail open={searchFormIsOpen}>
-            <LineForm text={'Encontre o seu link:'} isBig={false} onChange={searchLink}/>
+            <LineForm text={'Encontre o seu link:'} isBig={false} onChange={searchLink} value={''}/>
             {(filteredLink.id) && (
               <CardHighlighted 
               key = {filteredLink.id}
