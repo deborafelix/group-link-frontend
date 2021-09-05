@@ -5,7 +5,7 @@ import { useTrail, a } from 'react-spring';
 import { Link, useApp } from '../../../context';
 import { useState } from 'react';
 import { formatDate } from '../../../utils/formatDate';
-import { CardHighlighted } from '../CardHighlighted/CardHighlighted';
+import { Card } from '../Card/Card';
 
 type AnimatedType = {
     open: boolean,
@@ -34,7 +34,9 @@ const Trail: React.FC<AnimatedType> = ({ open, children }: AnimatedType) => {
 export const SearchForm = () => {
     const {searchFormIsOpen, links} = useApp();
     const [filteredLink, setFilteredLink] = useState<Link>({} as Link);
+    const [inputValue, setInputValue] = useState('');
     const searchLink = (inputText: string) => {
+      setInputValue(inputText);
       console.log(inputText)
       if (!inputText || inputText.length === 0) {
         setFilteredLink({} as Link);
@@ -52,9 +54,9 @@ export const SearchForm = () => {
     return(
     <Container>
         <Trail open={searchFormIsOpen}>
-            <LineForm text={'Encontre o seu link:'} isBig={false} onChange={searchLink} value={''}/>
+            <LineForm text={'Encontre o seu link:'} isBig={false} onChange={searchLink} value={inputValue}/>
             {(filteredLink.id) && (
-              <CardHighlighted 
+              <Card 
               key = {filteredLink.id}
               title={filteredLink.title} 
               description={filteredLink.description || filteredLink.url}
