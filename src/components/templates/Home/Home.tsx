@@ -12,21 +12,13 @@ export const Home: React.FC = () => {
     return(
         <Container>
             <Header />
-                {(linkFormIsOpen) 
-        
-                ? <Div>
-                    <Group/>
-                    <CardContainer />
-                    <LinkForm />
-                </Div>
-                
-                : <Div>
-                    <Group />
-                    <CardContainer />
-                    <SearchForm />
-                </Div>
-                
-                }    
+            <Div>
+                <Group />
+                <CardContainer />
+                { (linkFormIsOpen) && <LinkForm />  }
+                { (searchFormIsOpen) && <SearchForm /> }
+
+            </Div>    
         </Container>
     );
 }
