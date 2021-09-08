@@ -1,9 +1,9 @@
 import React, { ReactNode, useState } from 'react';
 import { AddButton } from '../../atoms/Buttons/Add/AddButton';
-import { LineForm } from '../LineForm/LineForm';
+import { LineForm } from '../../atoms/LineForm/LineForm';
 import { Container } from './styles';
 import { useTrail, a } from 'react-spring';
-import { IconForm } from '../IconForm/IconForm';
+import { IconForm } from '../../atoms/IconForm/IconForm';
 import { Link, useApp } from '../../../context';
 import { api } from '../../../config/api';
 
@@ -74,7 +74,7 @@ export const LinkForm: React.FC = () => {
             <LineForm text={'Link'} isBig={false} onChange={handleOnLinkChange} value={url}/>
             <IconForm text={'Icone da Categoria'} onChange={handleOnIconChange} value={icon}/>
             <LineForm text={'Descrição'} isBig={true} onChange={handleOnDescriptionChange} value={description}/>
-            <AddButton onClick={saveLink} />
+            <AddButton text={'Salvar'} onClick={saveLink} />
         </Trail>
     </Container>
     );

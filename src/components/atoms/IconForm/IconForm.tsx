@@ -1,6 +1,6 @@
 import React from 'react';
-import { IconInput } from '../../atoms/Input/IconInput/IconInput';
-import { TextInput } from '../../atoms/Text/TextInput/TextInput';
+import { IconInput } from '../Input/IconInput/IconInput';
+import { TextInput } from '../Text/TextInput/TextInput';
 import { Container } from './styles';
 
 type InputProps = {

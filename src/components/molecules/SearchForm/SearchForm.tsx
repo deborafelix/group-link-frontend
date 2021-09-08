@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { LineForm } from '../LineForm/LineForm';
+import { LineForm } from '../../atoms/LineForm/LineForm';
 import { Container } from './styles';
 import { useTrail, a } from 'react-spring';
 import { Link, useApp } from '../../../context';

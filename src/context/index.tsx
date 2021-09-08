@@ -28,7 +28,6 @@ type AppProviderProps = {
     children: ReactNode;
 }
 
-// TODO: init cards with some universal links (google etc)
 const Context = createContext<AppContext>({
     originalLinks: [],
     links: [],
